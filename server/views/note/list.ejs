@@ -1,0 +1,66 @@
+<%- include ../partials/header.ejs %>  <!-- This line calling header.ejs -->
+<%- include ../partials/main_nav.ejs %> <!-- This line calling Partials.ejs -->
+<!-- Main Content -->
+<body class="Assignemnt2">
+  <div class="main" id="About"></div>
+    <main>
+        <div class="row">
+
+            <%- include ../partials/info.ejs %> <!-- This line calling Partials.ejs -->
+
+
+<!-- ________________------------------------------------------_____________________________________-------------------------------__________________----------------------/*-->
+
+                <h3 class="center">Your Notes</h3>
+                
+                <a href="/note-taker/add"class="btn btn-primary" role="button">
+                    <i class="fa-solid fa-plus"></i> Create your notes
+                </a>
+                <br>
+
+                <table class="table table-bordered table-striped table-hover">
+                    <tr class="d-flex">
+                        <th class="text-center col-2">Note</th>
+                        <th class="text-center col-1">Date</th>
+                        <th class="text-center col-4">Description</th>
+                        <th class="text-center col-3">Additional note</th>
+                        <th class="text-center col-1"></th>
+                        <th class="text-center col-1"></th>
+                    </tr>
+                    <% for(let count=0; count< Notetaker.length; count++) { %>
+                        <tr class="d-flex">
+                            <td class="text-center col-2"><%= Notetaker[count].notename %></td>
+                            <td class="text-center col-1"><%= Notetaker[count].date %></td>
+                            <td class="text-center col-4"><%= Notetaker[count].description %></td>
+                            <td class="text-center col-3"><%= Notetaker[count].additionalnote %></td>
+                            <td class="text-center col-1">
+                                <a href="/note-taker/edit/<%= Notetaker[count]._id %>"
+                                    class='btn btn-primary'>
+                                    <i class="fas fa-pencil-alt"></i> Edit 
+                                </a>
+                            
+                            </td>
+                            <td class="text-center col-1">
+                                <a href="/note-taker/delete/<%= Notetaker[count]._id %>"
+                                    class='btn btn-danger'>
+                                    <i class="fas fa-trash-alt"></i> Delete 
+                                </a>
+                            
+                            </td>
+
+                        </tr>
+                    <% } %>
+                </table>
+
+                <section class="Information2">
+                    <!-- for more content on page for user with button tag to make page more attractive/*-->
+                    <h2>Thank you, have a nice day...</h2>
+                </section>
+
+            </div>
+        </div>
+
+    </main>
+</body>
+
+<%- include ../partials/footer.ejs %> <!-- This line calling footer.ejs -->

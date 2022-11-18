@@ -13,7 +13,7 @@ let DB = require('./db');
 
 // point mongoose to DB URI
 
-mongoose.connect(DB.URI);
+mongoose.connect("mongodb+srv://dev:dev17b@cluster0.d5vrsod.mongodb.net/?retryWrites=true&w=majority");
 let mongoDB = mongoose.connection;
 mongoDB.on('error',console.error.bind(console,'connection Error:'));
 mongoDB.once('open', ()=> {
